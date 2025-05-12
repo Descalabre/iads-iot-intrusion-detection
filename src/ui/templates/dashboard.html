@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IADS Dashboard</title>
+  <!-- Include Bootstrap CSS from CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    .dashboard-card {
+      margin: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg') no-repeat center center fixed; background-size: cover; color: #fff;">
+    <h1 class="text-center mt-4">Intrusion &amp; Anomaly Detection System</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-4 dashboard-card" style="margin: 20px; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
+        <h3>Detections</h3>
+        <p>{{ status.detections }} intrusion(s) detected.</p>
+      </div>
+      <div class="col-md-4 dashboard-card" style="margin: 20px; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
+        <h3>System Uptime</h3>
+        <p>{{ status.uptime }}</p>
+      </div>
+      <div class="col-md-4 dashboard-card" style="margin: 20px; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
+        <h3>CPU Usage</h3>
+        <p>{{ status.cpu_usage }}</p>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8 dashboard-card" style="margin: 20px; background: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
+        <h3>System Status Control Panel</h3>
+        <canvas id="statusChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    async function fetchHistory() {
+      try {
+        const response = await fetch('/api/status/history');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching status history:', error);
+        return [];
+      }
+    }
+
+    async function updateChart(chart) {
+      const history = await fetchHistory();
+      const labels = history.map(item => new Date(item.timestamp).toLocaleTimeString());
+      const detections = history.map(item => item.detections);
+      const cpuUsage = history.map(item => item.cpu_usage);
+
+      chart.data.labels = labels;
+      chart.data.datasets[0].data = detections;
+      chart.data.datasets[1].data = cpuUsage;
+      chart.update();
+    }
+
+    window.addEventListener('load', async () => {
+      const ctx = document.getElementById('statusChart').getContext('2d');
+      const statusChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: 'Detections',
+              data: [],
+              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              fill: true,
+              tension: 0.3
+            },
+            {
+              label: 'CPU Usage (%)',
+              data: [],
+              borderColor: 'rgba(54, 162, 235, 1)',
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              fill: true,
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100
+            }
+          }
+        }
+      });
+
+      await updateChart(statusChart);
+      setInterval(() => {
+        updateChart(statusChart);
+      }, 10000);
+    });
+  </script>
+</body>
+</html>
