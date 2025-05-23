@@ -5,7 +5,7 @@ Handles data loading, cleaning, feature extraction, and transformation.
 
 import pandas as pd
 import numpy as np
-from typing import Dict, List, Tuple, Union, Optional
+from typing import Dict, List, Tuple, Union, Optional, Any
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import joblib
 import os
@@ -111,9 +111,9 @@ class DataPreprocessor:
                 # Handle missing values based on data type
                 for col in df.columns:
                     if df[col].dtype in ['int64', 'float64']:
-                        df[col].fillna(df[col].median(), inplace=True)
+                        df[col] = df[col].fillna(df[col].median())
                     else:
-                        df[col].fillna(df[col].mode()[0], inplace=True)
+                        df[col] = df[col].fillna(df[col].mode()[0])
                 logger.debug("Handled missing values")
             
             if remove_duplicates:
