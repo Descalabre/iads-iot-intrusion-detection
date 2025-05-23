@@ -1,0 +1,17 @@
+{
+    "log_level": "DEBUG",
+    "model": {
+        "batch_size": 32,
+        "epochs": 10,
+        "validation_split": 0.2
+    },
+    "detection": {
+        "threshold": 0.8,
+        "window_size": 100
+    },
+    "dashboard": {
+        "host": "localhost",
+        "port": 5000,
+        "debug": true
+    }
+}
