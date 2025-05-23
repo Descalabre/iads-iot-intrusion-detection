@@ -14,11 +14,11 @@ from src.core.config import config, logger
 
 # Database configuration with defaults
 DB_CONFIG = {
-    "host": config.get("database", {}).get("host", "localhost"),
+    "host": "localhost",
     "database": config.get("database", {}).get("database", "iads_db"),
-    "user": config.get("database", {}).get("user", "iads_user"),
+    "user": "root",
     "password": config.get("database", {}).get("password", ""),
-    "port": config.get("database", {}).get("port", 3306),
+    "port": 3306,
     "pool_name": "iads_pool",
     "pool_size": 5
 }
