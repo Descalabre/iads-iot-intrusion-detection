@@ -3,9 +3,10 @@ Main entry point for the Intrusion and Anomaly Detection System (IADS).
 Handles command-line interface and orchestrates system components.
 """
 
-import argparse
 import sys
 import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import argparse
 from datetime import datetime
 import json
 from typing import Dict, Any, Optional
@@ -125,6 +126,12 @@ class IADSController:
                 
                 # Prepare data for AI model
                 X = processed_data[self.ai_model.feature_columns] if hasattr(self.ai_model, 'feature_columns') else processed_data
+                # Ensure X contains only numeric columns for prediction
+                X = X.select_dtypes(include=[float, int])
+                # Align number of columns with model input shape
+                expected_features = self.ai_model.input_shape if isinstance(self.ai_model.input_shape, int) else self.ai_model.input_shape[0]
+                if X.shape[1] > expected_features:
+                    X = X.iloc[:, :expected_features]
                 ai_predictions = self.ai_model.predict(X)
             
             # Combine results
