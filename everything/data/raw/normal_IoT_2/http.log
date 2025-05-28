@@ -1,0 +1,22 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	http
+#open	2019-05-15-14-46-50
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	trans_depth	method	host	uri	referrer	version	user_agent	request_body_len	response_body_len	status_code	status_msg	info_code	info_msg	tags	username	password	proxied	orig_fuids	orig_filenames	orig_mime_types	resp_fuids	resp_filenames	resp_mime_types
+#types	time	string	addr	port	addr	port	count	string	string	string	string	string	string	count	count	count	string	count	string	set[enum]	string	string	set[string]	vector[string]	vector[string]	vector[string]	vector[string]	vector[string]	vector[string]
+1554199822.626053	CXEVbV3ZWxJSJvf9E5	192.168.1.152	39516	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	F5VPiM1rh4a3njiCgh	-	application/ocsp-response
+1554210931.819343	CS8WB02vCM67BfPxe9	192.168.1.152	47272	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	FrRGia3sGmqdD832ri	-	application/ocsp-response
+1554211291.962470	C5nFHQ1YiDH6LJkOXk	192.168.1.152	47574	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	FuS8XE2JQpMqcNYUFb	-	application/ocsp-response
+1554211292.979692	C5nFHQ1YiDH6LJkOXk	192.168.1.152	47574	117.18.237.29	80	2	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	FESvcjTfjy4hyXCIl	-	application/ocsp-response
+1554211292.992520	C5nFHQ1YiDH6LJkOXk	192.168.1.152	47574	117.18.237.29	80	3	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	FrBluL3qVLiwyVpH18	-	application/ocsp-response
+1554211292.999528	CFctFY1QSeFyvBVdll	192.168.1.152	47590	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	F5ELGIo9W2UGgWek2	-	application/ocsp-response
+1554211293.000644	CTxQnS3tFT5Sft8bLa	192.168.1.152	47588	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	F6IxzYd9jT7H2bwJb	-	application/ocsp-response
+1554211293.002901	CTe1Ly36i3nmAiUqd4	192.168.1.152	47594	117.18.237.29	80	1	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	Fzyx1Z3BEo6o95Fve3	-	application/ocsp-response
+1554211295.382631	C5nFHQ1YiDH6LJkOXk	192.168.1.152	47574	117.18.237.29	80	4	-	-	-	-	1.1	-	0	471	200	OK	-	-	(empty)	-	-	-	-	-	-	F9Zq1C0gf68kfXKZb	-	application/ocsp-response
+1554213107.465827	Cu8kSg22Tpo5CVQDy1	192.168.1.152	54442	60.254.148.72	80	1	-	-	-	-	1.1	-	0	8	200	OK	-	-	(empty)	-	-	-	-	-	-	FCmRnn3Q0hZh6sv6N6	-	-
+1554214145.930681	CJRsQQ1KtuhClIKd8h	192.168.1.152	50114	60.254.148.81	80	1	-	-	-	-	1.1	-	0	8	200	OK	-	-	(empty)	-	-	-	-	-	-	FymS8y4mCOt1zrBYp7	-	-
+1554231108.021111	CEUhFD3KrlHVqzEOpj	192.168.1.152	56012	60.254.148.81	80	1	-	-	-	-	1.1	-	0	8	200	OK	-	-	(empty)	-	-	-	-	-	-	FqAOi62StPuGshLJNf	-	-
+1554231642.051425	CgHPSN2m6rDsPuBfbb	192.168.1.152	39164	23.1.240.136	80	1	-	-	-	-	1.1	-	0	8	200	OK	-	-	(empty)	-	-	-	-	-	-	FtlIip1JQeifBbb0L4	-	-
+#close	2019-05-15-14-47-25
