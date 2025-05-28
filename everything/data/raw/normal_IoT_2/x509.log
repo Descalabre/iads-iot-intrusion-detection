@@ -1,0 +1,15 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	x509
+#open	2019-05-15-14-46-55
+#fields	ts	id	certificate.version	certificate.serial	certificate.subject	certificate.issuer	certificate.not_valid_before	certificate.not_valid_after	certificate.key_alg	certificate.sig_alg	certificate.key_type	certificate.key_length	certificate.exponent	certificate.curve	san.dns	san.uri	san.email	san.ip	basic_constraints.ca	basic_constraints.path_len
+#types	time	string	count	string	string	string	time	time	string	string	string	count	string	string	vector[string]	vector[string]	vector[string]	vector[addr]	bool	count
+1554210817.649752	F06O1v32sFdRVtfNe1	3	017E45A31AA50BC35053BC50F9B69BAD	CN=*.services.mozilla.com,OU=Cloud Services,O=Mozilla Corporation,L=Mountain View,ST=California,C=US	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	1506988800.000000	1578484800.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	*.services.mozilla.com,services.mozilla.com	-	-	-	F	-
+1554210817.649752	FEYbXIcOfVYibyKF9	3	01FDA3EB6ECA75C888438B724BCFBC91	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	CN=DigiCert Global Root CA,OU=www.digicert.com,O=DigiCert Inc,C=US	1362744000.000000	1678276800.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	0
+1554214231.213510	Fy8N3lzJhATYWe3Nb	3	0DE509171EAE4FD487D890D9419C9B5F	CN=shavar.services.mozilla.com,OU=Cloud Services,O=Mozilla Corporation,L=Mountain View,ST=California,C=US	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	1532995200.000000	1565006400.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	shavar.services.mozilla.com,tracking-protection.services.mozilla.com,tracking.services.mozilla.com,shavar.prod.mozaws.net	-	-	-	F	-
+1554214231.213510	FA6I7hkE8wnvwBIK6	3	01FDA3EB6ECA75C888438B724BCFBC91	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	CN=DigiCert Global Root CA,OU=www.digicert.com,O=DigiCert Inc,C=US	1362744000.000000	1678276800.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	0
+1554254010.382629	F1hcuD3HJOEFeK7kr6	3	0CA9C64361BFC92A79B1DD9CFB9E48EC	CN=*.cdn.mozilla.net,O=Mozilla Corporation,L=Mountain View,ST=California,C=US	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	1478131200.000000	1580558400.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	*.cdn.mozilla.net,cdn.mozilla.net	-	-	-	F	-
+1554254010.382629	FdEVbE3ixdepppq398	3	01FDA3EB6ECA75C888438B724BCFBC91	CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US	CN=DigiCert Global Root CA,OU=www.digicert.com,O=DigiCert Inc,C=US	1362744000.000000	1678276800.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	0
+#close	2019-05-15-14-47-25
